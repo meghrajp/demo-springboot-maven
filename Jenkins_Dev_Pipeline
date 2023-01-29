@@ -5,7 +5,7 @@ pipeline {
         RT_URL = 'https://soleng.jfrog.io/artifactory'
         TOKEN = credentials('art_token')
         ARTIFACTORY_LOCAL_DEV_REPO = 'meghraj-dev'
-        SERVER_ID = 'k8s'
+        SERVER_ID = 'soleng'
         BUILD_NAME = "GS_SPRING_BOOT_main_mvn"
     }
     tools {
@@ -21,6 +21,7 @@ pipeline {
         }
         stage ('Ping to Artifactory') {
             steps {
+               sh 'jf c show'
                sh 'jf rt ping'
             }
         }
