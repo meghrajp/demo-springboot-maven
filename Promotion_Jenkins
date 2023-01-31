@@ -8,6 +8,7 @@ pipeline {
         ARTIFACTORY_LOCAL_STAGING_REPO = 'meghraj-maven-staging-local'
         ARTIFACTORY_LOCAL_PROD_REPO = 'meghraj-maven-prod-local'
         SERVER_ID = 'soleng'
+        BUILD_ID = 1
     }
     tools {
         maven "maven-3.8.6"
