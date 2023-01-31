@@ -67,7 +67,7 @@ pipeline {
                 sh 'JFROG_CLI_LOG_LEVEL=DEBUG jf rt bs --fail=false "${JOB_NAME}" ${BUILD_ID}'
             }
         }
-       stage ('Approve Release for Production') {
+        stage ('Approve Release for Production') {
            options {
                timeout(time: 5, unit: 'MINUTES')
            }
@@ -75,7 +75,7 @@ pipeline {
                input message: "Are we good to go to Production?"
            }
        }
-       stage ('entering the staging environment') {
+        stage ('entering the staging environment') {
             steps {
                 sh 'jf rt bpr --source-repo=${ARTIFACTORY_LOCAL_DEV_REPO} --status=Staging "${JOB_NAME}" ${BUILD_ID} ${ARTIFACTORY_LOCAL_STAGING_REPO}'
                 //Set properties to the files
@@ -87,7 +87,7 @@ pipeline {
                 sh 'JFROG_CLI_LOG_LEVEL=DEBUG jf rt bs --fail=false "${JOB_NAME}" ${BUILD_ID}'
             }
         }
-       stage ('Approve Release for Production') {
+        stage ('Approve Release for Production') {
            options {
                timeout(time: 5, unit: 'MINUTES')
            }
@@ -95,7 +95,7 @@ pipeline {
                input message: "Are we good to go to Production?"
            }
        }
-       stage ('Release for Production') {
+        stage ('Release for Production') {
            steps {
                sh 'jf rt bpr --source-repo=${ARTIFACTORY_LOCAL_STAGING_REPO} --status=Production "${JOB_NAME}" ${BUILD_ID} ${ARTIFACTORY_LOCAL_PROD_REPO}'
                //Set properties to the files
