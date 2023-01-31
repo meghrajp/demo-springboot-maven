@@ -67,7 +67,7 @@ pipeline {
                 sh 'JFROG_CLI_LOG_LEVEL=DEBUG jf rt bs --fail=false "${JOB_NAME}" ${BUILD_ID}'
             }
         }
-        stage ('Approve Release for Production') {
+        stage ('Approve Release for Stagging') {
            options {
                timeout(time: 5, unit: 'MINUTES')
            }
