@@ -28,7 +28,7 @@ pipeline {
         stage ('Config Maven'){
             steps {
                 dir('complete'){
-                    sh 'jf mvnc --repo-resolve-releases=demo-maven-virtual --repo-resolve-snapshots=demo-maven-virtual --repo-deploy-releases=demo-maven-virtual --repo-deploy-snapshots=demo-maven-virtual'
+                    sh 'jf mvnc --repo-resolve-releases=meghraj-virtual --repo-resolve-snapshots=meghraj-virtual --repo-deploy-releases=meghraj-virtual --repo-deploy-snapshots=meghraj-virtual'
                 }
             }
         }
