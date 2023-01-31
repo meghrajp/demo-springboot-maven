@@ -95,7 +95,7 @@ pipeline {
                input message: "Are we good to go to Production?"
            }
        }
-        stage ('Release for Production') {
+       stage ('Release for Production') {
            steps {
                sh 'jf rt bpr --source-repo=${ARTIFACTORY_LOCAL_STAGING_REPO} --status=Production "${JOB_NAME}" ${BUILD_ID} ${ARTIFACTORY_LOCAL_PROD_REPO}'
                //Set properties to the files
