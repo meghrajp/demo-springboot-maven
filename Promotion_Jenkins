@@ -8,7 +8,6 @@ pipeline {
         ARTIFACTORY_LOCAL_STAGING_REPO = 'meghraj-maven-staging-local'
         ARTIFACTORY_LOCAL_PROD_REPO = 'meghraj-maven-prod-local'
         SERVER_ID = 'soleng'
-        BUILD_ID = 1
     }
     tools {
         maven "maven-3.8.6"
@@ -68,7 +67,7 @@ pipeline {
                 sh 'JFROG_CLI_LOG_LEVEL=DEBUG jf rt bs --fail=false "${JOB_NAME}" ${BUILD_ID}'
             }
         }
-        stage ('Approve Release for Stagging') {
+        stage ('Approve Release for Production') {
            options {
                timeout(time: 5, unit: 'MINUTES')
            }
